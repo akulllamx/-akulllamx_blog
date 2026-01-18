@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Главная | #akulllamx_blog{% endblock %}
 
@@ -7,11 +8,18 @@
     <div class="col-lg-8 mx-auto">
         <!-- Героический баннер -->
         <div class="jumbotron bg-primary text-white p-5 rounded-lg shadow-sm">
-            <h1 class="display-4"><i class="fas fa-rocket"></i> Добро пожаловать!</h1>
-            <p class="lead">Здесь я делюсь своими идеями по IoT, Python и программированию</p>
+            <h1 class="display-4">
+                <img src="{% static 'images/shark_logo.svg' %}" alt="Лого" class="me-3" style="width: 60px; height: 60px; vertical-align: middle;">
+                Добро пожаловать!
+            </h1>
+            <p class="lead">Здесь я делюсь с вами своими идеями и размышлениями на разные темы</p>
             <hr class="my-4">
             <p class="mb-4">
-                Каждая статья — это опыт, инсайты и практические советы для разработчиков.
+                Я создал это веб-приложение, чтобы вести блог о своей жизни, интересах и важных событиях — и
+                делиться ими с вами. Буду счастлив вашим комментариям, реакциям и обратной связи.
+                <br>
+                <br>
+                Не стесняйтесь - будьте рядом!
             </p>
             <a class="btn btn-light btn-lg" href="{% url 'blog:post_list' %}" role="button">
                 <i class="fas fa-book"></i> Читать блог →
