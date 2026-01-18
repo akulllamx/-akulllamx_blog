@@ -1,0 +1,195 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+ENV.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.*.backup
+
+# Django migrations (если хочешь хранить только в репозитории)
+# migrations/
+# *.pyc
+
+# Django staticfiles
+staticfiles/
+staticfiles-dev/
+staticfiles-dist/
+
+# Django media files
+media/
+
+# Django collectstatic output
+staticfiles/
+
+# Django debug toolbar
+debug_toolbar/
+
+# Django coverage
+coverage/
+
+# MacOS
+.DS_Store
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Celery (если добавишь)
+celerybeat-schedule
+celeryd.pid
+
+# Poetry (если используешь)
+poetry.lock
+
+# Pre-commit hooks
+.pre-commit-cache
+
+# Temporary folders
+tmp/
+temp/
+
+# Database dumps
+*.dump
+*.sql
+
+# IDE specific
+.vscode/settings.json
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries/
+
+# Django debug toolbar
+debug_toolbar/
+
+# Sentry files
+.sentry/
+
+# Node (если добавишь фронтенд)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+!.vscode/extensions.json
+
+# Testing
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.coverage.*
+!/.coveragerc
+!.hypothesis/
+.pytest_cache/
+cover/
+.coverage
+.pytest_cache/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3-journal
+db.sqlite3
+media/
+
+# Environment-specific
+.env
+.env.backup
+.env.development
+.env.production
+.env.test
