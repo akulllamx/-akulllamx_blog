@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify  # Для создания слагов
 
@@ -6,45 +7,44 @@ from django.utils.text import slugify  # Для создания слагов
 User = get_user_model()
 
 class Post(models.Model):
-    """Модель для хранения постов."""
     STATUS_CHOICES = [
         ('draft', 'Черновик'),
         ('published', 'Опубликовано'),
     ]
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True)
-    content = models.TextField()
-    excerpt = models.CharField(max_length=500, blank=True)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
-
-    # Синхронизация с Telegram
-    telegram_message_id = models.BigIntegerField(null=True, blank=True)
-    is_synced_to_telegram = models.BooleanField(default=False)
-
-    # Медиа
-    featured_image = models.ImageField(
-        upload_to='blog/featured/', null=True, blank=True
+    title = models.CharField(max_length=200, verbose_name='Заголовок')
+    slug = models.SlugField(max_length=200, unique=True, blank=True, verbose_name='URL')
+    content = models.TextField(verbose_name='Содержание')
+    excerpt = models.TextField(max_length=300, blank=True, verbose_name='Краткое описание')
+    image = models.ImageField(upload_to='posts/', blank=True, null=True, verbose_name='Изображение')
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='draft',
+        verbose_name='Статус'
     )
+    views_count = models.PositiveIntegerField(default=0, verbose_name='Просмотры')
+    published_at = models.DateTimeField(auto_now_add=True, verbose_name='Опубликовано', null=True, blank=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
-    # Метаданные
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    published_at = models.DateTimeField(null=True, blank=True)
+    class Meta:
+        ordering = ['-published_at']
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
 
-    views_count = models.IntegerField(default=0)
+    def save(self, *args, **kwargs):
+        if not self.slug and self.title:
+            # Генерируем slug только из латиницы
+            self.slug = slugify(self.title, allow_unicode=False)
+            original_slug = self.slug
+            counter = 1
+            while Post.objects.filter(slug=self.slug).exists():
+                self.slug = f'{original_slug}-{counter}'
+                counter += 1
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
-
-    class Meta:
-        ordering = ['-published_at']  # По дате публикации по убыванию
 
 
 class Comment(models.Model):

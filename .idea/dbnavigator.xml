@@ -6,7 +6,7 @@
   </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseAssistantManager">
@@ -23,6 +23,12 @@
         </chats>
         <tools />
       </assistant-state>
+      <assistant-state connection-id="e6b9e05f-7297-4cec-a143-3d37c474b360" assistant-type="SELECT_AI" default-profile-name="" selected-chat-id="" availability="UNAVAILABLE" acknowledgement="NONE">
+        <tools />
+      </assistant-state>
+      <assistant-state connection-id="e6b9e05f-7297-4cec-a143-3d37c474b360" assistant-type="PUBLIC" default-profile-name="" selected-chat-id="" availability="AVAILABLE" acknowledgement="NONE" selected="true">
+        <tools />
+      </assistant-state>
     </assistants>
     <selection-state>
       <model-selection />
@@ -35,8 +41,8 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="c16b075f-3d08-4ab3-8da8-50b0fd28200a">
-      <console name="DB_akulllanx" type="STANDARD" schema="db" session="Main" />
+    <connection id="e6b9e05f-7297-4cec-a143-3d37c474b360">
+      <console name="DataBase - akulllamx" type="STANDARD" schema="db" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -49,7 +55,18 @@
     <prerequisites />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="c16b075f-3d08-4ab3-8da8-50b0fd28200a" />
+    <connection id="e6b9e05f-7297-4cec-a143-3d37c474b360" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.MethodExecutionManager">
+    <method-browser />
+    <execution-history>
+      <group-entries value="true" />
+      <execution-inputs />
+    </execution-history>
+    <execution-variables-cache />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -57,10 +74,10 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection source-id="" id="c16b075f-3d08-4ab3-8da8-50b0fd28200a" active="true" signed="true">
+      <connection source-id="" id="e6b9e05f-7297-4cec-a143-3d37c474b360" active="true" signed="true">
         <database>
-          <name value="DB_akulllanx" />
-          <description value="DB для проекта" />
+          <name value="DataBase - akulllamx" />
+          <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
           <database-version value="3.5" />

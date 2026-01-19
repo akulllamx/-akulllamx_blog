@@ -1,16 +1,15 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 app_name = 'blog'
 
 urlpatterns = [
-    # Главная с последними постами
     path('', views.home, name='home'),
-
-    # Список всех постов
-    path('posts/', views.post_list, name='post_list'),
-
-    # Один пост
-    path('post/<slug:slug>/', views.post_detail, name='post_detail'),
+    path('posts/', views.PostListView.as_view(), name='post_list'),
+    path('post/create/', views.create_post, name='create_post'),
+    path('post/<slug:slug>/', views.PostDetailView.as_view(), name='post_detail'),
+    path('post/<slug:slug>/edit/', views.edit_post, name='edit_post'),
+    path('post/<slug:slug>/delete/', views.delete_post, name='delete_post'),
+    path('comment/<int:post_id>/', views.add_comment, name='add_comment'),
 ]
 

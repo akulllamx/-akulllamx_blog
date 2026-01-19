@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Вход в админку{% endblock %}
+
+{% block content %}
+  <div class="container my-5">
+    <h2>Войти</h2>
+
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        Неверное имя пользователя или пароль.
+      </div>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="{{ form.username.id_for_label }}">Имя пользователя:</label>
+        {{ form.username }}
+      </div>
+      <div class="mb-3">
+        <label for="{{ form.password.id_for_label }}">Пароль:</label>
+        {{ form.password }}
+      </div>
+      <button type="submit" class="btn btn-primary">Войти</button>
+      <input type="hidden" name="next" value="{% url 'blog:home' %}" />
+    </form>
+  </div>
+{% endblock %}

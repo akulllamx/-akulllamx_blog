@@ -38,8 +38,8 @@
                 {% for post in posts %}
                     <div class="col-md-6 mb-4">
                         <div class="card h-100 shadow-sm hover-shadow transition">
-                            {% if post.featured_image %}
-                                <img src="{{ post.featured_image.url }}" class="card-img-top" alt="{{ post.title }}">
+                            {% if post.image %}
+                                <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
                             {% else %}
                                 <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
                                     <i class="fas fa-image text-white" style="font-size: 3rem;"></i>
@@ -56,9 +56,13 @@
                             </div>
                             
                             <div class="card-footer bg-white border-top-0">
-                                <a href="{% url 'blog:post_detail' post.slug %}" class="btn btn-sm btn-primary">
-                                    Читать далее →
-                                </a>
+<!--                                <a href="{% url 'blog:post_detail' post.slug|default:'no-slug' %}" class="btn btn-sm btn-primary" {% if not post.slug %}disabled{% endif %}>-->
+<!--                                    {% if post.slug %}-->
+<!--                                        Читать далее →-->
+<!--                                    {% else %}-->
+<!--                                        В разработке-->
+<!--                                    {% endif %}-->
+<!--                                </a>-->
                                 <span class="text-muted float-end">
                                     <i class="fas fa-eye"></i> {{ post.views_count }} просмотров
                                 </span>
